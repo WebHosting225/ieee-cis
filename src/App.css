@@ -1,5 +1,9 @@
-html, body, .App {
+html, body {
     min-height: 100vh;
     background: #e5ecf5;
     width: 100%;
+}
+
+.App {
+    margin-top: 125px;
 }

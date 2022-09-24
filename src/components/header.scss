@@ -4,6 +4,55 @@ $p-col: rgb(158, 158, 169);
 $span-col: white;
 $a-col: rgb(222, 217, 217);
 $a-col-hov: $p-col;
+$menu-width: 60vw;
+$menu-but-wid: 36px;
+$head-inline-pad: 20px;
+$head-up-pad: 40px;
+$head-down-pad: 10px;
+
+:root {
+  --hhh: 75px;
+  --hhw: 300px;
+}
+
+@media only screen and (max-width: 420px) and (min-width: 375px) {
+  :root {
+    --hhh: 72px;
+    --hhw: 286px;
+  }
+}
+
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+  :root {
+    --hhh: 70px;
+    --hhw: 280px;
+  }
+}
+
+@media only screen and (max-width: 360px) and (min-width: 0) {
+  :root {
+    --hhh: 60px;
+    --hhw: 240px;
+  }
+}
+
+@mixin width-transit-mixin($start: 0, $width) {
+  @keyframes width-transit {
+    from {
+      width: $start;
+    }
+    to {
+      width: $width;
+    }
+  }
+}
+
+@mixin no-user-select {
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
 
 * {
   box-sizing: border-box;
@@ -19,9 +68,8 @@ header {
   left: 0;
   min-width: fit-content;
   width: 100%;
-  transition: 0.3s;
-  padding-block: 40px 10px;
-  padding-inline: 20px;
+  padding-block: $head-up-pad $head-down-pad;
+  padding-inline: $head-inline-pad;
   background: $head-bg;
   z-index: 2;
 
@@ -48,7 +96,8 @@ header {
   }
 
   .header-hero {
-    height: 75px;
+    height: var(--hhh);
+    width: var(--hhw);
   }
 
   .header-pan {
@@ -58,23 +107,23 @@ header {
       li {
         list-style: none;
         padding-inline: 20px;
+        margin-block: 10px;
       }
     }
 
     .header-links-menu {
       position: fixed;
       right: 10px;
-      top: 25px;
+      top: $head-up-pad - 25px;
       display: none;
       font-weight: 1000;
       font-size: 25px;
       background: transparent;
       border: 0;
       cursor: pointer;
+      height: $menu-but-wid;
 
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
+      @include no-user-select;
       -ms-transform: rotate(90deg);
       transform: rotate(90deg);
     }
@@ -83,7 +132,6 @@ header {
   &[panned="out"] {
     .header-links {
       visibility: hidden;
-      width: 0;
     }
 
     .header-links-menu {
@@ -91,11 +139,18 @@ header {
     }
   }
 
-  &[menu="yes"][panned="out"] {
+  &[scrolled="true"] {
+    background: $head-bgX;
+  }
+
+  &[panned="out"][menu="yes"] {
     .header-links-menu {
-      right: 33vh;
-      transition: all .65s ease-out;
-      transition-delay: .35s;;
+      right: calc($menu-width - $menu-but-wid);
+      transition: right 1s ease-out;
+    }
+
+    &:focus {
+      background: red;
     }
 
     .header-links {
@@ -104,13 +159,15 @@ header {
       flex-direction: column;
       right: 0;
       top: 0;
-      padding-top: 125px;
+      padding-top: var(--hhh);
       height: 100vh;
-      width: 40vh;
+      width: $menu-width;
       background: linear-gradient(transparentize($head-bg, $amount: .5), $head-bgX);
       box-shadow: inset 0 0 40px 5px rgba(255, 255, 255, 0.3), 0 0 20px 5px rgba($head-bgX, .5);
       backdrop-filter: blur(8px);
       transition: all 1s ease-in-out, padding-top 0s;
+      @include width-transit-mixin($menu-but-wid, $menu-width);
+      animation: width-transit 1s ease-out;
 
       @media (hover: hover) {
         a:hover {
