@@ -1,5 +1,9 @@
 $foot-bg: rgb(58, 58, 58);
 $foot-bgX: adjust-color($foot-bg, $whiteness: 25%);
+$p-col: rgb(196, 195, 195);
+$span-col: white;
+$a-col: rgb(38, 37, 37);
+$a-col-hov: $p-col;
 
 * {
   box-sizing: border-box;
@@ -17,21 +21,24 @@ footer {
   width: 100%;
 
   p {
-    color: rgb(196, 195, 195);
+    color: $p-col;
   }
 
   span {
-    color: white;
+    color: $span-col;
     font-weight: bold;
   }
 
   a {
-    color: rgb(38, 37, 37);
-    font-weight: 400;
+    color: $a-col;
+    font-weight: 500;
     text-decoration: none;
+    cursor: pointer;
 
-    &:hover {
-      color: rgb(196, 195, 195);
+    @media (hover: hover) {
+      &:hover {
+        color: $a-col-hov;
+      }
     }
   }
 }
@@ -62,6 +69,11 @@ footer {
     li {
       list-style: none;
     }
+  }
+
+  .footer-hero {
+    height: 50px;
+    width: fit-content;
   }
 }
 

@@ -22,11 +22,14 @@ footer span {
 }
 footer a {
   color: rgb(38, 37, 37);
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
+  cursor: pointer;
 }
-footer a:hover {
-  color: rgb(196, 195, 195);
+@media (hover: hover) {
+  footer a:hover {
+    color: rgb(196, 195, 195);
+  }
 }
 
 .Footer {
@@ -53,6 +56,10 @@ footer a:hover {
 .Footer .footer-links li {
   list-style: none;
 }
+.Footer .footer-hero {
+  height: 50px;
+  width: fit-content;
+}
 
 .Footer--end {
   display: flex;
@@ -63,4 +70,4 @@ footer a:hover {
   justify-content: right;
 }
 
-/*# sourceMappingURL=Footer.css.map */
+/*# sourceMappingURL=footer.css.map */

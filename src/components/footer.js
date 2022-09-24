@@ -1,7 +1,7 @@
-import "./Footer.css";
+import "./footer.css";
 
 
-export default function () {
+export default function ({imgSrc, links}) {
     return (
         <footer>
             <div className="Footer">
@@ -9,14 +9,12 @@ export default function () {
                     <div className="content-v" style={{paddingRight: 25}}>
                         <span>Contact Us</span>
                         <p>Ramaiah Institute Of Technology, MSRIT Post, MSR Nagar, Bengaluru, Karnataka 560054</p>
+                        <img src={imgSrc} className="footer-hero" alt="footer hero"/>
                     </div>
                     <div className="content-v">
                         <span>Quick Links</span>
                         <ul className="footer-links">
-                            <li><a href={"#"}>Home</a></li>
-                            <li><a href={"#"}>Gallery</a></li>
-                            <li><a href={"#"}>Events</a></li>
-                            <li><a href={"#"}>Committee</a></li>
+                            {links.map(link => <li key={links.indexOf(link)}><a href={link.ref}>{link.name}</a></li>)}
                         </ul>
                     </div>
                 </div>

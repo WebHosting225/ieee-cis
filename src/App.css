@@ -1,7 +1,5 @@
-html, body {
+html, body, .App {
     min-height: 100vh;
-}
-
-.App {
-
+    background: #e5ecf5;
+    width: 100%;
 }
