@@ -1,0 +1,75 @@
+$foot-bg: rgb(58, 58, 58);
+$foot-bgX: adjust-color($foot-bg, $whiteness: 25%);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  p {
+    color: rgb(196, 195, 195);
+  }
+
+  span {
+    color: white;
+    font-weight: bold;
+  }
+
+  a {
+    color: rgb(38, 37, 37);
+    font-weight: 400;
+    text-decoration: none;
+
+    &:hover {
+      color: rgb(196, 195, 195);
+    }
+  }
+}
+
+.Footer {
+  display: flex;
+  width: 100%;
+  padding-block: 40px 10px;
+  padding-inline: 20px;
+  background-color: $foot-bgX;
+
+  .content-h {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .content-v {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-links {
+    list-style: none;
+    margin-bottom: 10px;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.Footer--end {
+  display: flex;
+  width: 100%;
+  padding-block: 20px 5px;
+  padding-inline: 10px;
+  background-color: $foot-bg;
+  justify-content: right;
+}
