@@ -4,6 +4,19 @@ html, body {
     width: 100%;
 }
 
+@keyframes refresh {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: initial;
+    }
+}
+
+body.refresh {
+    animation: refresh .75s ease-in;
+}
+
 .App {
     margin-top: 125px;
 }

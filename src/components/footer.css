@@ -55,6 +55,7 @@ footer a {
 }
 .Footer .footer-links li {
   list-style: none;
+  line-height: 25px;
 }
 .Footer .footer-hero {
   height: 50px;
@@ -64,8 +65,8 @@ footer a {
 .Footer--end {
   display: flex;
   width: 100%;
-  padding-block: 20px 5px;
-  padding-inline: 10px;
+  padding-block: 5px 20px;
+  padding-inline: 20px;
   background-color: rgb(58, 58, 58);
   justify-content: right;
 }

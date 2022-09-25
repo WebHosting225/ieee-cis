@@ -1,4 +1,5 @@
 import "./footer.css";
+import {Link} from "react-router-dom";
 
 
 export default function ({imgSrc, links}) {
@@ -14,7 +15,14 @@ export default function ({imgSrc, links}) {
                     <div className="content-v">
                         <span>Quick Links</span>
                         <ul className="footer-links">
-                            {links.map(link => <li key={links.indexOf(link)}>{link.link}</li>)}
+                            {links.map(link =>
+                                <li key={links.indexOf(link)}>
+                                    <Link to={link.link} onClick={() => {
+                                        window.scrollTo(0, 0);
+                                        document.body.classList.toggle("refresh");
+                                        setTimeout(() => document.body.classList.remove("refresh"), 750);
+                                    }}>{link.name}</Link>
+                                </li>)}
                         </ul>
                     </div>
                 </div>
