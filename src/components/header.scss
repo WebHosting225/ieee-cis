@@ -122,6 +122,7 @@ header {
       border: 0;
       cursor: pointer;
       height: $menu-but-wid;
+      z-index: 2;
 
       @include no-user-select;
       -ms-transform: rotate(90deg);
