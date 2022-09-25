@@ -14,7 +14,7 @@ export default function ({imgSrc, links}) {
                     <div className="content-v">
                         <span>Quick Links</span>
                         <ul className="footer-links">
-                            {links.map(link => <li key={links.indexOf(link)}><a href={link.ref}>{link.name}</a></li>)}
+                            {links.map(link => <li key={links.indexOf(link)}>{link.link}</li>)}
                         </ul>
                     </div>
                 </div>

@@ -1,16 +1,22 @@
 import "./header.css";
 import {useEffect, useRef, useState} from "react";
 
+const approxeq = (v1, v2, epsilon = 5) => v2 - v1 <= epsilon;
 
 export default function ({imgSrc, links}) {
-    let header_ref = useRef();
+    let header_ref = useRef(), menuToggle = useRef(["yes", "no"]);
     const [topPad, setTopPad] = useState(40);
+    let overFlowWidth;
 
     function overFlowCheck(element) {
-        if (window.innerWidth < element.clientWidth) element.setAttribute("panned", "out");
-        else {
+        if (!approxeq(window.innerWidth, element.clientWidth) && !overFlowWidth) {
+            element.setAttribute("panned", "out");
+            overFlowWidth = element.clientWidth;
+        }
+        else if (!approxeq(overFlowWidth, window.innerWidth)) {
             element.setAttribute("panned", "ok");
-            if (menuToggle[1] === "yes") menuButtonCnt(element);
+            overFlowWidth = undefined;
+            if (menuToggle.current[1] === "yes") menuButtonCnt(element);
         }
     }
 
@@ -22,8 +28,8 @@ export default function ({imgSrc, links}) {
     }
 
     function menuButtonCnt(element) {
-        element.setAttribute("menu", menuToggle[0]);
-        menuToggle = menuToggle.reverse();
+        element.setAttribute("menu", menuToggle.current[0]);
+        menuToggle.current = menuToggle.current.reverse();
     }
 
     useEffect(() => {
@@ -31,7 +37,7 @@ export default function ({imgSrc, links}) {
         window.addEventListener('resize', () => overFlowCheck(header_ref.current));
         window.addEventListener('scroll', () => scrollCheck(header_ref.current));
     }, [])
-    let menuToggle = ["yes", "no"];
+
     return (
         <header ref={header_ref} style={{paddingTop: topPad}}>
             <img src={imgSrc} className="header-hero" alt="header hero"/>
