@@ -1,17 +1,16 @@
-import './App.css';
+import "./App.css";
 
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
 import {Outlet} from "react-router-dom";
-import {useEffect} from "react";
 
-export default function ({links}) {
+export default function App ({links}) {
     return (
         <>
-            <Header imgSrc={"/static/images/ieeeb.png"} links={links}/>
+            <Header imgSrc={"/static/images/ieee_cis.png"} links={links}/>
             <div className="App"><Outlet/></div>
-            <Footer imgSrc={"/static/images/ieeeb.png"} links={links}/>
+            <Footer imgSrc={"/static/images/ieee_cis.png"} links={links}/>
         </>
     );
 }

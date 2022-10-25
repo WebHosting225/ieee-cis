@@ -1,0 +1,101 @@
+.header-cnt {
+  @import "../../styles/global";
+
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: var(--s1);
+  padding: 5px;
+
+  a {
+    display: block;
+    color: var(--sph);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .header {
+    flex: 1;
+
+    &.on {
+      & .header--links {
+        display: initial;
+        position: absolute;
+        right: 0;
+        width: 75%;
+        margin: 5px;
+
+        backdrop-filter: blur(8px);
+        background: rgba(gray, .4);
+        border-radius: 10px;
+
+        @include width-transit-mixin(30%, 75%);
+        animation: width-transit ease-out .5s;
+
+        li {
+          margin-inline: 0 auto;
+        }
+      }
+
+      & .header--menu {
+        transform: rotate(360deg);
+        padding: 5px;
+        font-weight: 550;
+        transition: transform .5s;
+      }
+    }
+  }
+
+  .header--hero {
+    flex: 1;
+    max-width: 200px;
+    height: 100%;
+  }
+
+  .header--links {
+    list-style: none;
+    display: flex;
+    width: fit-content;
+    margin-inline: auto 0;
+
+    li {
+      list-style: none;
+      line-height: 25px;
+      padding-inline: 20px;
+      margin-block: 10px;
+    }
+
+    &.menu {
+      display: none;
+    }
+  }
+
+  .header--menu {
+    @include no-us;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: fit-content;
+
+    cursor: pointer;
+    font-weight: 1000;
+    font-size: 25px;
+    background: transparent;
+    border: 0;
+    transform: rotate(90deg);
+    color: var(--p1);
+
+    &.hide {
+      display: none;
+    }
+  }
+}

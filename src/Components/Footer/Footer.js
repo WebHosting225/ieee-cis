@@ -1,20 +1,21 @@
-import "./footer.css";
+import "../../styles/theme.css";
+import "./Footer.css";
 import {Link} from "react-router-dom";
 
 
-export default function ({imgSrc, links}) {
+export default function Footer ({imgSrc, links}) {
     return (
-        <footer>
-            <div className="Footer">
+        <footer className="footer-cnt">
+            <div className="footer">
                 <div className="content-h">
                     <div className="content-v" style={{paddingRight: 25}}>
-                        <span>Contact Us</span>
+                        <span className="head">Contact Us</span>
                         <p>Ramaiah Institute Of Technology, MSRIT Post, MSR Nagar, Bengaluru, Karnataka 560054</p>
-                        <img src={imgSrc} className="footer-hero" alt="footer hero"/>
+                        <img src={imgSrc} className="footer--hero" alt="footer hero"/>
                     </div>
                     <div className="content-v">
-                        <span>Quick Links</span>
-                        <ul className="footer-links">
+                        <span className="head">Quick Links</span>
+                        <ul className="footer--links">
                             {links.map(link =>
                                 <li key={links.indexOf(link)}>
                                     <Link to={link.link} onClick={() => {
@@ -27,10 +28,9 @@ export default function ({imgSrc, links}) {
                     </div>
                 </div>
             </div>
-            <div className="Footer--end">
+            <div className="footer--end">
                 <p>Follow Us For Updates</p>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>IEEE <span>Bangalore</span></p>
+                <span>©IEEE(CIS) RIT</span>
             </div>
         </footer>
     );

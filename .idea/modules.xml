@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ieeeb.iml" filepath="$PROJECT_DIR$/.idea/ieeeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ieee-cis.iml" filepath="$PROJECT_DIR$/.idea/ieee-cis.iml" />
     </modules>
   </component>
 </project>

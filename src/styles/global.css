@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes refresh {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: initial;
+  }
+}
+.refresh {
+  animation: refresh 0.75s ease-in;
+}
+
+/*# sourceMappingURL=global.css.map */

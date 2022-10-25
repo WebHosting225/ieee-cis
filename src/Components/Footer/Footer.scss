@@ -1,0 +1,81 @@
+.footer-cnt {
+  @import "../../styles/global";
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  a {
+    color: var(--spl);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        color: black;
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    width: 100%;
+    background: var(--p0);
+    padding: 5px;
+  }
+
+  .footer--end {
+    display: flex;
+    width: 100%;
+    background: var(--s1);
+    padding: 5px;
+    justify-content: right;
+
+    p {
+      padding-inline: 10px;
+    }
+
+    span {
+      font-weight: bold;
+      color: var(--sph);
+    }
+  }
+
+  .footer--links {
+    list-style: none;
+
+    li {
+      list-style: none;
+      line-height: 25px;
+    }
+  }
+
+  .footer--hero {
+    max-width: 150px;
+  }
+
+  .content-h {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .content-v {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .content-h, .content-v {
+    padding-left: 5px;
+
+    .head {
+      margin-left: -5px;
+      font-weight: bold;
+      color: var(--spl);
+    }
+  }
+}
