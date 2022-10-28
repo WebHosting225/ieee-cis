@@ -1,20 +1,23 @@
-import "../../styles/theme.css";
 import "./Footer.css";
 import {Link} from "react-router-dom";
 
 
-export default function Footer ({imgSrc, links}) {
+export default function Footer({imgSrc, links}) {
     return (
         <footer className="footer-cnt">
             <div className="footer">
                 <div className="content-h">
-                    <div className="content-v" style={{paddingRight: 25}}>
-                        <span className="head">Contact Us</span>
-                        <p>Ramaiah Institute Of Technology, MSRIT Post, MSR Nagar, Bengaluru, Karnataka 560054</p>
-                        <img src={imgSrc} className="footer--hero" alt="footer hero"/>
+                    <div className="content-v">
+                        <span className="head">Contact Us<hr/></span>
+                        <div className="content-v">
+                            <p>Ramaiah Institute Of Technology, MSRIT Post, MSR Nagar, Bengaluru, Karnataka 560054</p>
+                        </div>
+                        <div className="content-v">
+                            <img src={imgSrc} className="footer--hero head" alt="footer hero"/>
+                        </div>
                     </div>
                     <div className="content-v">
-                        <span className="head">Quick Links</span>
+                        <span className="head">Quick Links<hr/></span>
                         <ul className="footer--links">
                             {links.map(link =>
                                 <li key={links.indexOf(link)}>
@@ -25,6 +28,9 @@ export default function Footer ({imgSrc, links}) {
                                     }}>{link.name}</Link>
                                 </li>)}
                         </ul>
+                    </div>
+                    <div className="content-v">
+                        <span className="head">Socials<hr/></span>
                     </div>
                 </div>
             </div>

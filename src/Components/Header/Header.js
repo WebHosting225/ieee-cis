@@ -3,6 +3,8 @@ import {useCallback, useEffect, useRef} from "react";
 import {Link} from "react-router-dom";
 
 export default function Header({imgSrc, links}) {
+    const scrollStop = 25;
+    const cnt = useRef(null);
     const headerRef = useRef(null), linkRef = useRef(null), menuRef = useRef(null);
     const menuToggle = useRef(['|||', "X"]);
     const width = useRef(0);
@@ -38,15 +40,19 @@ export default function Header({imgSrc, links}) {
         const header = headerRef.current;
         const resizeObserver = new ResizeObserver(() => overFlowCheck(header, linkRef.current, menuRef.current));
         resizeObserver.observe(header);
-
+        const sx = () => {
+            cnt.current.classList.toggle('scrolled', window.scrollY >= scrollStop);
+        }
+        sx();
+        window.addEventListener('scroll', sx)
         return () => {
             resizeObserver.unobserve(header);
-            console.clear();
+            window.removeEventListener('scroll', sx);
         }
     }, [overFlowCheck]);
 
     return (
-        <header className={"header-cnt"}>
+        <header ref={cnt} className={"header-cnt"} style={{marginTop: scrollStop}}>
             <img src={imgSrc} className={"header--hero"} alt={"header hero"}/>
             <div className={"header"} ref={headerRef}>
                 <ul className={"header--links"} ref={linkRef}>

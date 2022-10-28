@@ -1,9 +1,13 @@
 .footer-cnt {
   @import "../../styles/global";
 
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
+
+  hr {
+    border-color: var(--p0);
+  }
 
   a {
     color: var(--spl);
@@ -59,23 +63,27 @@
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    height: fit-content;
   }
 
   .content-v {
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
+    width: fit-content;
   }
 
   .content-h, .content-v {
-    padding-left: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    flex-wrap: wrap;
 
     .head {
       margin-left: -5px;
       font-weight: bold;
-      color: var(--spl);
+      color: var(--h0);
     }
   }
 }

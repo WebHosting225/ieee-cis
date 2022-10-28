@@ -1,0 +1,76 @@
+$height: 60vh;
+$dot: 7px;
+$anim-time: 1s;
+
+.Slider-cnt {
+  @import "../../styles/global";
+
+  position: relative;
+  margin-inline: auto;
+
+  @mixin arrow {
+    @include no-us();
+
+    top: calc(50% - 1em);
+    position: absolute;
+    font-size: 3em;
+    font-weight: 1000;
+    color: var(--spl);
+    text-shadow: var(--sph) 0 0 3px;
+    cursor: pointer;
+    padding-inline: 1pc;
+  }
+
+  .left {
+    @include arrow();
+    left: 0;
+  }
+
+  .right {
+    @include arrow();
+    right: 0;
+  }
+
+  .Slider {
+    display: flex;
+    margin-inline: auto;
+    width: fit-content;
+    padding: 10px;
+
+    .Img {
+      max-width: 100%;
+      height: $height;
+      border-radius: 1em;
+
+      opacity: 0;
+      width: 0;
+      transition: all $anim-time;
+
+      &.active {
+        opacity: initial;
+        width: initial;
+        transition: all $anim-time;
+      }
+    }
+  }
+
+  .dots {
+    display: flex;
+    margin-inline: auto;
+    width: fit-content;
+
+    .dot {
+      margin: 2px;
+      width: $dot;
+      height: $dot;
+      border-radius: 50%;
+      border: 1px solid var(--s1);
+      transition: all $anim-time / 3;
+
+      &.active {
+        background: var(--s1);
+        transition: all $anim-time / 3;
+      }
+    }
+  }
+}

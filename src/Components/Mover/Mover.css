@@ -1,0 +1,26 @@
+.Mover {
+  background: red;
+  position: relative;
+  margin: 10px;
+}
+.Mover * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@keyframes refresh {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: initial;
+  }
+}
+.Mover .refresh {
+  animation: refresh 0.75s ease-in;
+}
+.Mover .Move {
+  background: green;
+}
+
+/*# sourceMappingURL=Mover.css.map */

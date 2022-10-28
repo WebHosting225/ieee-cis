@@ -1,0 +1,11 @@
+.Mover {
+  @import "../../styles/global";
+
+  background: red;
+  position: relative;
+  margin: 10px;
+
+  .Move {
+    background: green;
+  }
+}
