@@ -3,6 +3,7 @@
   overflow: hidden;
   margin: 10px;
   --anim-time: .5s;
+  --height: 75vh;
 }
 @keyframes slide-in-y-l {
   0% {
@@ -79,6 +80,11 @@
 .Slider-cnt .refresh {
   animation: refresh 0.75s ease-in;
 }
+@media (max-width: 700px) {
+  .Slider-cnt {
+    --height: 50vh;
+  }
+}
 .Slider-cnt .left {
   user-select: none;
   -moz-user-select: none;
@@ -132,7 +138,7 @@
 .Slider-cnt .Slider {
   position: relative;
   width: 100%;
-  height: 75vh;
+  height: var(--height);
 }
 .Slider-cnt .Slider .comp {
   display: flex;
@@ -143,7 +149,6 @@
   height: 100%;
   width: 100%;
   padding: 10px;
-  margin-inline: auto;
   list-style: none;
   opacity: 0;
   transition: opacity var(--anim-time);
@@ -151,10 +156,6 @@
   will-change: animation;
 }
 .Slider-cnt .Slider .comp * {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
   border-radius: 1em;
   max-width: 100%;
   max-height: 100%;

@@ -17,9 +17,11 @@ const links = [
     {name: "Committee", link: "/committee"},
 ];
 
+const tit = "IEEE - CIS";
+
 function Page({title, children}) {
     useEffect(() => {
-        title && (document.title = title + " | " + "IEEE - CIS");
+        title && (document.title = title + " | " + tit);
     }, [title]);
     return <>{children}</>;
 }

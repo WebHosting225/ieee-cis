@@ -17,6 +17,8 @@
     .Move {
       @include center();
       position: absolute;
+      transform: none;
+      will-change: transform;
 
       * {
         box-shadow: 2px 2px 10px;

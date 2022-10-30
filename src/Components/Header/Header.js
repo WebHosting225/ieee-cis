@@ -14,9 +14,9 @@ export default function Header({imgSrc, links}) {
         menu.value = menuToggle.current[0];
         header.classList.toggle("on");
         if (header.classList.contains("on"))
-            window.addEventListener('click', mEvent);
+            window.addEventListener('click', mEvent.current);
         else
-            window.removeEventListener('click', mEvent);
+            window.removeEventListener('click', mEvent.current);
     }, []);
 
     const overFlowCheck = useCallback(function (header, link, menu) {
@@ -32,9 +32,9 @@ export default function Header({imgSrc, links}) {
         }
     }, [onMenu]);
 
-    const mEvent = useCallback(function (event) {
+    const mEvent = useRef(useCallback(function (event) {
         if (!linkRef.current.contains(event.target)) onMenu(headerRef.current, menuRef.current);
-    }, [onMenu]);
+    }, [onMenu]));
 
     useEffect(() => {
         const header = headerRef.current;
@@ -50,7 +50,7 @@ export default function Header({imgSrc, links}) {
             resizeObserver.unobserve(header);
             window.removeEventListener('scroll', sx);
         }
-    }, [overFlowCheck]);
+    }, [overFlowCheck, onMenu]);
 
     return (
         <header ref={cnt} className={"header-cnt"} style={{marginTop: scrollStop}}>

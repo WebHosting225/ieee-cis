@@ -32,9 +32,9 @@ function Move({translate = [20, 20], children, width, height, style, trigRef = (
 }
 
 function Mover({children, width, height, style, ...props}) {
-    const [refresh, doRefresh] = useState([]);
+    const [, doRefresh] = useState([]);
     const moverRef = useRef(null);
-    const trigRefs = useMemo(() => [], [refresh]);
+    const trigRefs = useMemo(() => [], []);
 
     const mm = useCallback(function (event, enter = false) {
         const [x, y] = [
