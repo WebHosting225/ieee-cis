@@ -1,22 +1,81 @@
 .header-cnt {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  position: sticky;
   top: 0;
   left: 0;
   padding: 5px;
   z-index: 999;
 }
-.header-cnt * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@keyframes slide-in-y-l {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-y-r {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-x-l {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-x-r {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-y-l {
+  100% {
+    transform: translateY(-100%);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-y-r {
+  100% {
+    transform: translateY(100%);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-x-l {
+  100% {
+    transform: translateX(-100%);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-x-r {
+  100% {
+    transform: translateX(100%);
+  }
+  0% {
+    transform: translateY(0);
+  }
 }
 @keyframes refresh {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  100% {
     opacity: initial;
   }
 }
@@ -24,14 +83,20 @@
   animation: refresh 0.75s ease-in;
 }
 .header-cnt.scrolled {
+  position: sticky;
   background: var(--s1);
   transition: background linear 200ms;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.5);
 }
-.header-cnt.scrolled a {
+.header-cnt.scrolled .header--hero {
+  max-width: 133.3333333333px;
+  transition: height 200ms;
+}
+.header-cnt.scrolled a, .header-cnt .header.on a {
   color: var(--sph);
 }
 @media (hover: hover) {
-  .header-cnt.scrolled a:hover {
+  .header-cnt.scrolled a:hover, .header-cnt .header.on a:hover {
     color: white;
   }
 }
@@ -57,7 +122,7 @@
   position: absolute;
   right: 0;
   width: 85%;
-  height: 200%;
+  height: fit-content;
   margin: 10px;
   backdrop-filter: blur(8px);
   background: rgba(var(--s1r), 0.5);

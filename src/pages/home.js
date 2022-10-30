@@ -1,25 +1,34 @@
+import './home.css';
 import Slider from "../Components/Slider/Slider";
 import {Mover, Move} from "../Components/Mover/Mover";
+import importAll from "../tools/importAll";
 
-export default function Home () {
+const slImgs = importAll(require.context("../slider/", false));
+
+export default function Home() {
     return (
-        <>
-            <Slider imgs={[
-                "https://images.unsplash.com/photo-1535378620166-273708d44e4c",
-                "https://images.unsplash.com/photo-1563968743333-044cef800494",
-                "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74",
-                "https://images.unsplash.com/photo-1616161560417-66d4db5892ec",
-            ]}/>
-
-            {/*<Mover width={400} height={500}>*/}
-            {/*    <h1>Hii</h1>*/}
-            {/*    <Move width={100} height={100}>*/}
-            {/*        <h1>1</h1>*/}
-            {/*    </Move>*/}
-            {/*    <Move width={200} height={100}>*/}
-            {/*        <h1>2</h1>*/}
-            {/*    </Move>*/}
-            {/*</Mover>*/}
-        </>
+        <div id={"home"}>
+            <Slider comps={Object.keys(slImgs).map(
+                (key, i) => <img key={key} srcSet={slImgs[key]} alt={'img' + i}/>
+            )}/>
+            <Mover style={{padding: 20}}>
+                <Move translate={[60, 75]}>
+                    <img style={{width: "35vw"}} src="/static/images/mover/myhc_89683.jpg" alt={"3"}/>
+                </Move>
+                <Move>
+                    <img style={{width: "45vw"}} src="/static/images/mover/itsAllHere.jpeg" alt={"2"}/>
+                </Move>
+                <Move translate={[30, 30]}>
+                    <img style={{width: "45vw"}} src="/static/images/mover/video-archive.jpg" alt={"1"}/>
+                </Move>
+            </Mover>
+            <p>
+                <span className={"dat"}><abbr>Brief</abbr></span>
+                <b>IEEE Computational Intelligence Society (CIS)</b> is a professional society of IEEE focusing on the
+                theory, design, application, and development of biologically and linguistically motivated computational
+                paradigms emphasising neural networks, connection systems, genetic algorithms, evolutionary
+                programming, fuzzy systems, and hybrid intelligent systems in which these paradigms are contained.
+            </p>
+        </div>
     );
 }

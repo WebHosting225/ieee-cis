@@ -1,18 +1,22 @@
-$height: 60vh;
+$height: 75vh;
 $dot: 7px;
-$anim-time: 1s;
 
 .Slider-cnt {
   @import "../../styles/global";
-
   position: relative;
-  margin-inline: auto;
+  overflow: hidden;
+  margin: 10px;
+  --anim-time: .5s;
 
   @mixin arrow {
     @include no-us();
+    @include center();
 
-    top: calc(50% - 1em);
     position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 3;
+
     font-size: 3em;
     font-weight: 1000;
     color: var(--spl);
@@ -24,32 +28,50 @@ $anim-time: 1s;
   .left {
     @include arrow();
     left: 0;
+
+    &:after {
+      content: "<";
+    }
   }
 
   .right {
     @include arrow();
     right: 0;
+
+    &:after {
+      content: ">";
+    }
   }
 
   .Slider {
-    display: flex;
-    margin-inline: auto;
-    width: fit-content;
-    padding: 10px;
+    position: relative;
+    width: 100%;
+    height: $height;
 
-    .Img {
-      max-width: 100%;
-      height: $height;
-      border-radius: 1em;
+    .comp {
+      @include center();
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+      margin-inline: auto;
+      list-style: none;
 
       opacity: 0;
-      width: 0;
-      transition: all $anim-time;
+      transition: opacity var(--anim-time);
+      animation: normal;
+      will-change: animation;
+
+      * {
+        @include center();
+        border-radius: 1em;
+        max-width: 100%;
+        max-height: 100%;
+      }
 
       &.active {
-        opacity: initial;
-        width: initial;
-        transition: all $anim-time;
+        z-index: 2;
+        opacity: 1;
       }
     }
   }
@@ -65,11 +87,11 @@ $anim-time: 1s;
       height: $dot;
       border-radius: 50%;
       border: 1px solid var(--s1);
-      transition: all $anim-time / 3;
+      transition: all var(--anim-time) / 3;
 
       &.active {
         background: var(--s1);
-        transition: all $anim-time / 3;
+        transition: all var(--anim-time) / 3;
       }
     }
   }

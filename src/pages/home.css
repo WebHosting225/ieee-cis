@@ -1,0 +1,234 @@
+#home {
+  @import "theme.css";
+}
+@keyframes slide-in-y-l {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-y-r {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-x-l {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-x-r {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-y-l {
+  100% {
+    transform: translateY(-100%);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-y-r {
+  100% {
+    transform: translateY(100%);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-x-l {
+  100% {
+    transform: translateX(-100%);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-x-r {
+  100% {
+    transform: translateX(100%);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+@keyframes refresh {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: initial;
+  }
+}
+#home .refresh {
+  animation: refresh 0.75s ease-in;
+}
+#home h1 {
+  color: #111;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 64px;
+  margin: 0 0 0;
+  padding: 20px 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+#home h2 {
+  color: #111;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 0 0 24px;
+  padding: 0 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+#home b {
+  display: block;
+  color: #111;
+  font-family: Verdana, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+#home p {
+  max-width: 40pc;
+  color: #111;
+  font-family: Roboto, sans-serif;
+  font-size: 1.15rem;
+  line-height: 2rem;
+  margin-block: 3em;
+  margin-inline: auto;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  #home p {
+    font-size: 1.1rem;
+    padding: 1pc;
+  }
+}
+#home a {
+  color: #990000;
+  text-decoration: none;
+}
+#home a:hover {
+  text-decoration: underline;
+}
+#home .dat {
+  color: #111;
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+#home .dat abbr {
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--bg);
+  padding: 5px;
+  font-weight: 500;
+}
+#home .dat:before {
+  border-top: 1px solid #111;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+#home .author {
+  color: #111;
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  padding-bottom: 38px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+#home .author:before {
+  border-top: 1px solid #111;
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+#home .dat span,
+#home .author span {
+  background: #fdfdfd;
+  padding: 0 10px;
+  text-transform: uppercase;
+}
+#home .line {
+  border-top: 1px solid #111;
+  display: block;
+  margin-top: 60px;
+  padding-top: 50px;
+  position: relative;
+}
+#home .read-more {
+  -moz-border-radius: 50%;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in-out;
+  background: #111;
+  border-radius: 50%;
+  border: 10px solid #fdfdfd;
+  color: #fff;
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  height: 80px;
+  line-height: 80px;
+  margin: -40px 0 0 -40px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  text-align: center;
+  text-transform: uppercase;
+  width: 80px;
+}
+#home .read-more:hover {
+  background: #990000;
+  text-decoration: none;
+}
+#home .Mover {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#home .Move {
+  position: relative !important;
+}
+@media (max-width: 700px) {
+  #home .Mover {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

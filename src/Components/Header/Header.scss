@@ -1,18 +1,29 @@
+$header-hero-wid: 200px;
+
 .header-cnt {
   @import "../../styles/global";
 
+  position: relative;
   display: flex;
   justify-content: space-between;
-  position: sticky;
   top: 0;
   left: 0;
   padding: 5px;
   z-index: 999;
 
   &.scrolled {
+    position: sticky;
     background: var(--s1);
     transition: background linear 200ms;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 50%);
 
+    .header--hero {
+      max-width: $header-hero-wid * 2 / 3;
+      transition: height 200ms;
+    }
+  }
+
+  &.scrolled, .header.on {
     a {
       color: var(--sph);
 
@@ -52,7 +63,7 @@
         position: absolute;
         right: 0;
         width: 85%;
-        height: 200%;
+        height: fit-content;
         margin: 10px;
 
         backdrop-filter: blur(8px);
@@ -78,7 +89,7 @@
   }
 
   .header--hero {
-    max-width: 200px;
+    max-width: $header-hero-wid;
     height: 100%;
   }
 

@@ -1,11 +1,26 @@
-.Mover {
+.Mover-cnt {
   @import "../../styles/global";
+  --pos-from: 0, 0;
 
-  background: red;
-  position: relative;
-  margin: 10px;
+  @keyframes enter {
+    from {
+      transform: translate(var(--pos-from));
+    }
+  }
 
-  .Move {
-    background: green;
+  width: 100%;
+
+  .Mover {
+    position: relative;
+    padding: 10px;
+
+    .Move {
+      @include center();
+      position: absolute;
+
+      * {
+        box-shadow: 2px 2px 10px;
+      }
+    }
   }
 }

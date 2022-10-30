@@ -1,0 +1,19 @@
+#home {
+  @import "../styles/para";
+
+  .Mover {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .Move {
+    position: relative !important;
+  }
+
+  @media (max-width: 700px) {
+    .Mover {
+      display: none;
+    }
+  }
+}

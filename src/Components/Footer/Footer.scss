@@ -37,12 +37,22 @@
     justify-content: right;
 
     p {
-      padding-inline: 10px;
+      font-weight: 500;
+
+      &:after {
+        padding-inline: 5px;
+        content: "|";
+      }
     }
 
     span {
       font-weight: bold;
       color: var(--sph);
+    }
+
+    &:after {
+      content: "";
+      width: 20px;
     }
   }
 
